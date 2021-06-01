@@ -40,18 +40,38 @@ let course = {
 
 // Get the following values:
 
-// Name of the course ('JavaScript Applications')
+// 1. Name of the course ('JavaScript Applications')
+console.log(course.name);
 
-// Name of the second teacher ('Shane')
+// 2. Name of the second teacher ('Shane')
+console.log(course.teachers[1]);
 
-// Name of the first student ('Steve')
+// 3. Name of the first student ('Steve')
+console.log(course.students[0].name);
 
-// Katy's computer type ('macbook')
+// 4. Katy's computer type ('macbook')
+console.log(course.students[1].computer.type);
+// Alternative solution
+course.students.forEach(function (item, index) {
+  if (item.name == "Katy") {
+    console.log(item.computer.type);
+  }
+});
 
-// The preReq equipment object
+// 5. The preReq equipment object
+console.log(course.preReqs.equipment);
 
-// The second OSOption from equipment prereqs ('osx')
+// 6. The second OSOption from equipment prereqs ('osx')
+console.log(course.preReqs.equipment.OSOptions[1]);
 
-// String listing the OSOptions separated by 'or' ('linux or osx')
+// 7. String listing the OSOptions separated by 'or' ('linux or osx')
+console.log(course.preReqs.equipment.OSOptions.join(" or "));
 
-// An array of all the students that are using osx
+// 8. An array of all the students that are using osx
+let OSXStudents = [];
+course.students.forEach(function (item, index) {
+  if (item.computer.OS == "OSX") {
+    OSXStudents.push(item);
+  }
+});
+console.log(OSXStudents);
