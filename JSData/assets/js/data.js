@@ -63,3 +63,67 @@ console.log(names);
 for (let i = 0; i < names.length; i++) {
   console.log("Name at position " + i + " is " + names[i]);
 }
+
+// Use pop() to take the last item from the list
+// This modifies the array!!
+let lastName = names.pop();
+console.log("The last name on the list was " + lastName);
+console.log("The list of names after removing the last name with pop():");
+console.log(names);
+
+// Use shift() to take the first item out of the array
+console.log("The first item was: " + names.shift());
+console.log("The list after shifting:");
+console.log(names);
+
+// Use unshift() to add an item to the beginning of the array
+console.log("Adding NewFirst to the beginning of the array...");
+names.unshift("NewFirst");
+console.log("The list after adding an item with unshift:");
+console.log(names);
+
+// Use the indexOf() function to find the index of a value
+console.log("The index of NewFirst is " + names.indexOf("NewFirst"));
+
+// New array to demo more array functions
+let numbers = [1, 2, 3, 4];
+
+// Use slice() to make a new array from a section of an array
+// Makes a copy of the array, does not modify the original
+let slicedNumbers = numbers.slice(1, 3);
+console.log("Original array:");
+console.log(numbers);
+console.log("Sliced array (copy):");
+console.log(slicedNumbers);
+
+// Use splice() to insert values into an array
+// This does modify the array
+let removedNumbers = numbers.splice(1, 2);
+console.log("Array after splicing:");
+console.log(numbers);
+
+// Using a forEach() loop on an array
+let listOfStrings = ["StringOne", "StringTwo", "StringThree"];
+
+// Demo using a regular for-loop
+for (let i = 0; i < listOfStrings.length; i++) {
+  console.log("String at index " + i + " is " + listOfStrings[i]);
+}
+
+// Iterate through the list using a forEach
+// Takes a callback function to be executed on each item
+listOfStrings.forEach(function (item, index) {
+  console.log("The item " + item + " is at index " + index);
+});
+
+// Converting Arrays to Strings
+let teachers = ["First Teacher", "Second Teacher"];
+let stringOfTeachers = teachers.toString();
+console.log("The result of toString(): " + stringOfTeachers);
+let joinedTeachers = teachers.join("&");
+console.log("The result of join('&'): " + joinedTeachers);
+
+// Ordering Sorting
+let sortMe = [2, 1, 3];
+console.log("Sorted list: " + sortMe.sort());
+console.log("Reverse sorted: " + sortMe.reverse());
