@@ -17,8 +17,60 @@
 
 let slideshow = {
   photoList: [],
+  addPhoto: function (newPhotoName) {
+    this.photoList.push(newPhotoName);
+    console.log(`Added photo: ${newPhotoName}`);
+  },
   currentPhotoIndex: 0,
-  nextPhoto: () => {},
-  prevPhoto: () => {},
-  getCurrentPhoto: () => {},
+  nextPhoto: function () {
+    this.currentPhotoIndex++;
+    if (this.currentPhotoIndex > this.photoList.length - 1) {
+      console.log("End of slideshow.");
+      this.currentPhotoIndex--;
+    } else {
+      this.getCurrentPhoto();
+    }
+  },
+  prevPhoto: function () {
+    this.currentPhotoIndex--;
+    if (this.currentPhotoIndex < 0) {
+      console.log("End of slideshow.");
+      this.currentPhotoIndex++;
+    } else {
+      this.getCurrentPhoto();
+    }
+  },
+  getCurrentPhoto: function () {
+    if (this.photoList.length == 0) {
+      console.log(`No photos in the list!`);
+    }
+    console.log(
+      `Photo #${this.currentPhotoIndex + 1}: ${
+        this.photoList[this.currentPhotoIndex]
+      }`
+    );
+  },
+  getList: function () {
+    console.log(this.photoList);
+  },
 };
+
+slideshow.addPhoto("My Weekend");
+slideshow.addPhoto("A Boat");
+slideshow.addPhoto("That time it happened");
+
+slideshow.getCurrentPhoto();
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+slideshow.nextPhoto();
+
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+slideshow.prevPhoto();
+
+slideshow.getList();
