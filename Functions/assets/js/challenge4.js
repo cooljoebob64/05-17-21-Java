@@ -15,4 +15,10 @@
 
 // A function getCurrentPhoto() that returns the current photo from the list.
 
-
+let slideshow = {
+  photoList: [],
+  currentPhotoIndex: 0,
+  nextPhoto: () => {},
+  prevPhoto: () => {},
+  getCurrentPhoto: () => {},
+};
