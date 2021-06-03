@@ -21,6 +21,8 @@ console.log(`Number of inputs: ${inputs.length}`);
 console.log(`Number of error fields: ${inError.length}`);
 
 let links = document.querySelectorAll("a");
+console.log("The nodeList of links:");
+console.log(links);
 
 // Works!
 let linkCount = links.length;
@@ -33,5 +35,17 @@ links.forEach(function (link) {
 
 // Array methods like forEach, map, reduce, and so on, don't work.
 // Luckily, its easy enough to convert a nodeList into an Array.
-let links = document.querySelectorAll("a");
 let arrayOfLinks = Array.from(links);
+console.log("The array of links:");
+console.log(arrayOfLinks);
+
+// for (let i = 0; i < links.length; i++) {
+//   links[i].style.color = "green";
+// }
+
+// Changing the color value as we go down the list
+let blueAmount = 0;
+for (let i = 0; i < links.length; i++) {
+  links[i].style.color = "RGB(100,100," + blueAmount + ")";
+  blueAmount += 60;
+}
