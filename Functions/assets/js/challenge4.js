@@ -55,6 +55,9 @@ let slideshow = {
   },
 };
 
+
+// Some demonstration of the object at work
+
 slideshow.addPhoto("My Weekend");
 slideshow.addPhoto("A Boat");
 slideshow.addPhoto("That time it happened");
