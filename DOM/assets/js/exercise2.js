@@ -8,3 +8,26 @@
 
 // 5. Add the class 'important' to the muscle milk item.
 
+let list = document.querySelector("#list");
+
+//1
+list.children[1].innerHTML = "Fair Trade Coffee";
+
+//2
+list.children[3].remove();
+
+//3
+let cheese = document.createElement("li");
+cheese.innerHTML = "Cheese Whiz";
+list.appendChild(cheese);
+
+//4
+list.innerHTML = "";
+["protein powder", "muscle milk", "power bars"].forEach(function (itemText) {
+  var li = document.createElement("li");
+  li.innerHTML = itemText;
+  list.appendChild(li);
+});
+
+//5
+list.children[1].className = "important";
