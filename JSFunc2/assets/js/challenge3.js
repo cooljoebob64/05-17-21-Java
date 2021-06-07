@@ -15,6 +15,7 @@ let slideshow = {
   addPhoto: function (newPhotoName) {
     this.photoList.push(newPhotoName);
     console.log(`Added photo: ${newPhotoName}`);
+    this.getCurrentPhoto();
   },
   currentPhotoIndex: 0,
   nextPhoto: function () {
@@ -40,12 +41,14 @@ let slideshow = {
       console.log(`No photos in the list!`);
     }
     console.log(
-      `Photo #${this.currentPhotoIndex + 1}: ${
+      `Current Photo Is #${this.currentPhotoIndex + 1}: ${
         this.photoList[this.currentPhotoIndex]
       }`
     );
     currentPhotoName.innerHTML = this.currentPhoto();
+    currentPhotoIndex.innerHTML = this.currentPhotoIndex + 1;
   },
+
   currentPhoto: function () {
     return this.photoList[this.currentPhotoIndex];
   },
@@ -60,21 +63,27 @@ let slideshow = {
     }, 2000);
   },
   pause: function () {
-    console.log("Pausing playback...");
-    clearInterval(this.playInterval);
+    if (this.playInterval) {
+      console.log("Pausing playback...");
+      clearInterval(this.playInterval);
+    }
   },
 };
-
-slideshow.addPhoto("My Weekend");
-slideshow.addPhoto("A Boat");
-slideshow.addPhoto("That time it happened");
 
 let playButton = document.getElementById("playButton");
 let pauseButton = document.getElementById("pauseButton");
 let currentPhotoName = document.getElementById("currentPhotoName");
-let nextButton = document.getElementById("nextButton")
+let currentPhotoIndex = document.getElementById("currentPhotoIndex");
+let nextButton = document.getElementById("nextButton");
+let prevButton = document.getElementById("prevButton");
 playButton.addEventListener("click", slideshow.play.bind(slideshow));
 pauseButton.addEventListener("click", slideshow.pause.bind(slideshow));
+nextButton.addEventListener("click", slideshow.nextPhoto.bind(slideshow));
+prevButton.addEventListener("click", slideshow.prevPhoto.bind(slideshow));
+
+slideshow.addPhoto("My Weekend");
+slideshow.addPhoto("A Boat");
+slideshow.addPhoto("That time it happened");
 
 // slideshow.getCurrentPhoto();
 
