@@ -19,7 +19,5 @@ let secretIdentity = superHeros.map(function (revealArray) {
   return `${revealArray[0]} is ${revealArray[1]}`;
 });
 
-let names = "";
-for (let i = 0; i < secretIdentity.length; i++) {
-  console.log(secretIdentity[i]);
-}
+let names = secretIdentity.join("\n");
+console.log(names);
