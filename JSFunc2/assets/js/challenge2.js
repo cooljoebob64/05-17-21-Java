@@ -53,7 +53,7 @@ console.log(RBsWithMoreThan5TDs);
 
 // Get the number of touchdowns scored by Running backs
 let TDsByRBs = rbs.reduce(function (sum, player) {
-  return (sum += player.touchdowns);
+  return sum + player.touchdowns;
 }, 0);
 console.log("Total touchdowns by RBs:");
 console.log(TDsByRBs);
