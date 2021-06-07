@@ -9,4 +9,17 @@
 // join them together with the string "is" (ie: "Batman is Bruce Wayne")
 // Log the results to the screen and join them with a line break.
 
+let superHeros = [
+  ["Batman", "Bruce Wayne"],
+  ["Spiderman", "Peter Parker"],
+  ["The Flash", "Barry Allen"],
+];
 
+let secretIdentity = superHeros.map(function (revealArray) {
+  return `${revealArray[0]} is ${revealArray[1]}`;
+});
+
+let names = "";
+for (let i = 0; i < secretIdentity.length; i++) {
+  console.log(secretIdentity[i]);
+}
