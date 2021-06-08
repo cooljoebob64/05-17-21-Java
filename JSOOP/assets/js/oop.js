@@ -88,6 +88,11 @@ let studentPrototype = {
   declareMajor: function () {
     return `My major is ${this.major}`;
   },
+  identify: function () {
+    return `My name is ${this.firstName} ${
+      this.lastName
+    }. ${this.declareMajor()}.`;
+  },
 };
 
 let student1 = Object.create(studentPrototype);
@@ -161,3 +166,13 @@ console.log(`${ezStudent.getFullName()} says, \"${ezStudent.declareMajor()}\"`);
 
 // This happens very frequently! There's an easier way...
 // Constructors!
+
+function Student(firstName, lastName, major) {
+  this.__proto__ = studentPrototype;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.major = major;
+}
+
+let constructoStudent = new Student("Constructo", "Reducto", "Automation");
+console.log(constructoStudent.identify());
